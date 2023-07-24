@@ -41,11 +41,16 @@ public class Interface {
         }
 
     if (lottery.checkToys(lotteryQueue)) {
-        System.out.println("Проведение лоттереи среди игрушек...");
+        System.out.println("Проведение розыгрышей среди игрушек...");
         data.printQueue(lotteryQueue);
-        System.out.println("Лотерея проведена!");
-        System.out.println("Игрушка-победитель:");
-        System.out.println("* * * " + lottery.startLottery(lotteryQueue) + " * * *");
+        System.out.println("Игрушки-победители:");
+        data.writeStampToFile();
+        for (int i = 0; i < 9; i++) {
+            Toy toyWinner = lottery.startLottery(lotteryQueue);
+            System.out.println("* * * " + toyWinner + " * * *");
+            data.writeWinnersToFile(toyWinner);
+        }
+        data.writeWinnersToFile(lottery.startLottery(lotteryQueue));
     }
     else
         System.out.println("Неверно указаны вероятности! Невозможно провести лотерею!");

@@ -1,11 +1,9 @@
 package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.*;
 
 public class Data {
     public List<Toy> getToyListFromFile(String filename) throws IOException {
@@ -69,6 +67,29 @@ public class Data {
     public void printQueue (PriorityQueue<Toy> lotteryQueue) {
         for (Toy item : lotteryQueue) {
             System.out.println(item.id + ": " + item.name + " (" + item.dropFrequency + ")");
+        }
+    }
+
+    public void writeWinnersToFile (Toy toy){
+        try(FileWriter writer = new FileWriter("winners.toys", true))
+        {
+            writer.write(String.valueOf(toy) + "\n");
+            writer.flush();
+        }
+        catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void writeStampToFile (){
+        Date d = new Date();
+        try(FileWriter writer = new FileWriter("winners.toys", true))
+        {
+            writer.write("Розыгрыш х 10 (" + String.valueOf(d.toString()) + "):\n");
+            writer.flush();
+        }
+        catch(IOException ex){
+            System.out.println(ex.getMessage());
         }
     }
 }
