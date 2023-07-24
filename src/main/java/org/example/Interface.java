@@ -43,7 +43,7 @@ public class Interface {
     if (lottery.checkToys(lotteryQueue)) {
         System.out.println("Проведение розыгрышей среди игрушек...");
         data.printQueue(lotteryQueue);
-        System.out.println("Игрушки-победители:");
+        System.out.println("Игрушки-победители в розыгрышах:");
         data.writeStampToFile();
         for (int i = 0; i < 9; i++) {
             Toy toyWinner = lottery.startLottery(lotteryQueue);

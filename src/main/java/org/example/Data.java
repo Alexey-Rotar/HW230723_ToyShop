@@ -51,7 +51,7 @@ public class Data {
         for (Toy item : lotteryList) {
             System.out.print(item + ", вероятность = ");
             chance = Integer.parseInt(sc.nextLine());
-            item.dropFrequency = chance;
+            item.setDropFrequency(chance);
         }
         return lotteryList;
     }
@@ -66,7 +66,7 @@ public class Data {
 
     public void printQueue (PriorityQueue<Toy> lotteryQueue) {
         for (Toy item : lotteryQueue) {
-            System.out.println(item.id + ": " + item.name + " (" + item.dropFrequency + ")");
+            System.out.println(item.getId()+ ": " + item.getName() + " (" + item.getDropFrequency() + ")");
         }
     }
 

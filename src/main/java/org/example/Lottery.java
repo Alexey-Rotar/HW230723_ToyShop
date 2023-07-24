@@ -10,7 +10,7 @@ public class Lottery {
         int random = r.nextInt(100) + 1;
         //System.out.println("[" + random + "]");
         for (Toy item : lotteryQueue) {
-            freqSum += item.dropFrequency;
+            freqSum += item.getDropFrequency();
             if (random <= freqSum) {
                 return item;
             }
@@ -21,7 +21,7 @@ public class Lottery {
     public boolean checkToys (PriorityQueue<Toy> lotteryQueue) {
         int freqSum = 0;
         for (Toy item : lotteryQueue) {
-            freqSum += item.dropFrequency;
+            freqSum += item.getDropFrequency();
         }
         if (freqSum == 100)
             return true;
