@@ -75,6 +75,7 @@ public class Data {
         {
             writer.write(String.valueOf(toy) + "\n");
             writer.flush();
+            writer.close();
         }
         catch(IOException ex){
             System.out.println(ex.getMessage());
